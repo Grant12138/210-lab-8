@@ -10,9 +10,26 @@ void print_id(string const& lab_desc)
 
 class Color
 {
-private:
-};
+    private:
+        int red, green, blue;
+    public:
+        // Setters
+        void setRed(int r) { red = r; }
+        void setGreen(int g) { green = g; }
+        void setBlu(int b) { blue = b; }
 
+        // Getters
+        int getRed() const { return red; }
+        int getGreen() const { return green; }
+        int getBlue() const { return blue; }
+
+        // Other method(s)
+        void print() const
+        {
+            cout <<
+        }
+
+};
 
 
 
