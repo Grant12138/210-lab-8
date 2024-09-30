@@ -68,7 +68,7 @@ int main()
 
 void print_id(string const& lab_desc)
 {
-    cout << "COMSC210 | Grant Luo | " << lab_desc << "\n";
+    cout << "\nCOMSC210 | Grant Luo | " << lab_desc << "\n";
     cout << "Editor: CLion\n";
     cout << "Compiler: Apple clang version 16.0.0\n";
     cout << "File: " << __FILE__ << "\n";

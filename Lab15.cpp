@@ -29,8 +29,8 @@ class Movie
         void print()
         {
             cout << "Movie: " << title << '\n';
-            cout.width(4); cout << "Year released: " << yearReleased << '\n';
-            cout.width(4); cout << "Screenwriter: " << screenWriter << "\n\n";
+            cout << "    " << "Year released: " << yearReleased << '\n';
+            cout << "    " << "Screenwriter: " << screenWriter << "\n\n";
         }
 };
 
@@ -40,9 +40,10 @@ int main()
 {
     print_id("Lab 15: Movie Class");
 
-    Movie movie1, movie2, movie3;
-    vector<Movie> movieList {movie1, movie2, movie3};
+    // Initialize a vector container for four movie objects
+    vector<Movie> movieList (4);
 
+    // Set up file I/O
     ifstream fin("movies.txt");
     try
     {
@@ -54,6 +55,7 @@ int main()
         return 1;
     }
 
+    // Populate each of the movie object in the container
     for (Movie& aMovie : movieList)
     {
         string aTitle;
@@ -77,7 +79,9 @@ int main()
         getline(fin, theScreenWriter);
         aMovie.setScreenWriter(theScreenWriter);
     }
+    fin.close();
 
+    // Display each movie object's data
     for (Movie& aMovie : movieList)
         aMovie.print();
 
@@ -86,7 +90,7 @@ int main()
 
 void print_id(string const& lab_desc)
 {
-    cout << "COMSC210 | Grant Luo | " << lab_desc << "\n";
+    cout << "\nCOMSC210 | Grant Luo | " << lab_desc << "\n";
     cout << "Editor: CLion\n";
     cout << "Compiler: Apple clang version 16.0.0\n";
     cout << "File: " << __FILE__ << "\n";
