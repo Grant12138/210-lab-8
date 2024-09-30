@@ -4,6 +4,8 @@
 * Compiler: Apple clang version 16.0.0
 */
 #include <iostream>
+#include <vector>
+#include <fstream>
 using namespace std;
 
 class Movie
@@ -38,7 +40,10 @@ int main()
 {
     print_id("Lab 15: Movie Class");
 
-    vector<Movie> movieList {};
+    Movie movie1, movie2, movie3;
+
+    ifstream fin("movies.txt");
+
 
     return 0;
 }
