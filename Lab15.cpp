@@ -14,14 +14,18 @@ class Movie
         int yearReleased;
     public:
         // Setters
-        void setScreenWriter(string s) { screenWriter = s; }
-        void setTitle(string s) { title = s; }
-        void setYear(string s)
+        void setScreenWriter(string writer) { screenWriter = writer; }
+        void setTitle(string theTitle) { title = theTitle; }
+        void setYear(int year) { yearReleased = year; }
+
+        // Getters
+        string getScreenWriter() const { return screenWriter; }
+        string getTitle() const { return title; }
+        int getYear() const { return yearReleased; }
+
+        // Print method that displays the object data
+        void print()
         {
-            try
-            {
-                yearReleased = stoi(s);
-            }
-            catch
+            cout << "Movie: " << screenWriter << "\n";
         }
 };
