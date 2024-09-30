@@ -43,7 +43,18 @@ int main()
     Movie movie1, movie2, movie3;
 
     ifstream fin("movies.txt");
+    try
+    {
+        if (!fin.good()) throw "I/O error";
+    }
+    catch (char* e)
+    {
+        cout << e << '\n';
+        return 1;
+    }
 
+    string aTitle;
+    getline(fin, aTitle);
 
     return 0;
 }
