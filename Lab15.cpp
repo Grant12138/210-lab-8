@@ -41,20 +41,45 @@ int main()
     print_id("Lab 15: Movie Class");
 
     Movie movie1, movie2, movie3;
+    vector<Movie> movieList {movie1, movie2, movie3};
 
     ifstream fin("movies.txt");
     try
     {
         if (!fin.good()) throw "I/O error";
     }
-    catch (char* e)
+    catch (const char* e)
     {
         cout << e << '\n';
         return 1;
     }
 
-    string aTitle;
-    getline(fin, aTitle);
+    for (Movie& aMovie : movieList)
+    {
+        string aTitle;
+        getline(fin, aTitle);
+        aMovie.setTitle(aTitle);
+
+        string theYear;
+        fin >> theYear;
+        fin.ignore(1000, '\n');
+        try
+        {
+            aMovie.setYear(stoi(theYear));
+        }
+        catch (invalid_argument&)
+        {
+            cout << "The year released needs to be an integer value. \n";
+            aMovie.setYear(0000);
+        }
+
+        string theScreenWriter;
+        getline(fin, theScreenWriter);
+        aMovie.setScreenWriter(theScreenWriter);
+    }
+
+    for (Movie& aMovie : movieList)
+        aMovie.print();
 
     return 0;
 }
